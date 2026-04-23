@@ -26,5 +26,8 @@ alphabet_df = pandas.read_csv("nato_phonetic_alphabet.csv")
 alphabet_dict = {row.letter:row.code for (index, row) in alphabet_df.iterrows()}
 #TODO 2. Create a list of the phonetic code words from a word that the user inputs.
 your_word = input("Enter your word: ").upper()
-your_word_nato = [code for letter in your_word for (acronym, code) in alphabet_dict.items() if letter == acronym ]
+# My original solution:
+# your_word_nato = [code for letter in your_word for (acronym, code) in alphabet_dict.items() if letter == acronym ]
+your_word_nato = [alphabet_dict[letter] for letter in your_word]
 print(your_word_nato)
+
